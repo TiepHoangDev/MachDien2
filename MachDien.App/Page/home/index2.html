@@ -1,0 +1,197 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>ĐỒ ÁN: PHẠM ĐĂNG QUÂN - NGUYỄN MINH CHIẾN</title>
+    <link href="/Page/home/index.css" rel="stylesheet" />
+    <script>
+        window.HUB_URL = "http://171.241.24.225:5353/";
+        //window.HUB_URL = "http://localhost:5353/";
+    </script>
+    <script src="/Page/jquery/jquery-3.4.1.min.js"></script>
+    <script src="/Page/signalR/jquery.signalR-2.4.1.min.js"></script>
+    <script>
+        document.write(`<script src="${window.HUB_URL}/signalr/hubs">\x3C/script>`);
+    </script>
+    <script src="/Page/vuejs/vue.min.js"></script>
+    <link href="/Page/uikit-3.2.3/css/uikit.min.css" rel="stylesheet" />
+    <link href="/Page/home/favicon.ico" rel="shortcut icon" />
+</head>
+<body>
+    <h2 class="uk-position-top-center" style="text-align: center; width: 1000px; color: red; background-color: rgba(209,209,209,0.5)">
+        ĐỒ ÁN: PHẠM ĐĂNG QUÂN - NGUYỄN MINH CHIẾN
+    </h2>
+    <img src="/Page/home/map.png" style="width: 1920px; height: 947px;" />
+    <div>
+        <div class="info" style="width: 714px;position: absolute;bottom: 224px;padding: 5px;right: 5px;height: 200px;background-color: #ffe162;">
+            <div uk-grid="" class="uk-grid">
+                <div class="uk-width-auto uk-first-column"> <img src="/Page/home/quan.jpg" style="height: 200px;"> </div>
+                <div class="uk-width-expand uk-text-center">
+                    <div>
+                        <h2 style=" color: red; font-size: 22px; margin: 0; ">PHẠM ĐĂNG QUÂN</h2>
+                    </div>
+                    <div>
+                        <h2 style=" font-size: 22px; ">MSV: 1581510230 Lớp: D10DTVT2</h2>
+                    </div>
+                    <div>
+                        <h2 style=" font-size: 31px; color: green; ">NGHIÊN CỨU THIẾT KẾ, CHẾ TẠO THIẾT BỊ GIÁM SÁT NHIỆT ĐỘ, ĐỘ ẨM CỦA TỦ TỤ BÙ HẠ THẾ</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="info" style="width: 714px;position: absolute;bottom: 7px;padding: 5px;right: 5px;height: 200px;background-color: #ffe162;">
+            <div uk-grid="" class="uk-grid">
+                <div class="uk-width-auto uk-first-column"> <img src="/Page/home/chien.jpg" style="height: 200px;"> </div>
+                <div class="uk-width-expand uk-text-center">
+                    <div>
+                        <h2 style=" color: red; font-size: 34px; margin: 0; ">NGUYỄN MINH CHIẾN</h2>
+                    </div>
+                    <div>
+                        <h2 style=" font-size: 22px; ">MSV: 1581510202 Lớp: D10DTVT2</h2>
+                    </div>
+                    <div>
+                        <h2 style=" font-size: 28px; color: green; ">NGHIÊN CỨU THIẾT KẾ, CHẾ TẠO THIẾT BỊ GIÁM SÁT DÒNG ĐIỆN, ĐIỆN ÁP CỦA TỦ TỤ BÙ HẠ THẾ</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="position: absolute; top: 0; left: 0;">
+        <img src="/Page/home/epu.png" style=" width: 250px; height: 100px; ">
+    </div>
+
+    <div id="app">
+
+        <div class="setting">
+            <div id="modal-center" class="uk-flex-top" uk-modal style="padding: 10px;">
+                <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+                    <div class="uk-form-stacked">
+                        <div class="uk-margin">
+                            <div class="uk-form-controls">
+                                <div class="uk-child-width-1-2" uk-grid>
+                                    <div>
+                                        <label class="uk-form-label" for="form-stacked-text">NHIỆT ĐỘ NGOÀI (0-50*C)</label>
+                                        <input v-model="noidung.models.ts.CBDHT11" title="DHT11" class="uk-input" id="form-stacked-text" type="number" min="0" max="50" placeholder="NHIỆT ĐỘ NGOÀI (0-50*C)">
+                                    </div>
+
+                                    <div>
+                                        <label class="uk-form-label" for="form-stacked-text">NHIỆT ĐỘ TRONG (0-50*C)</label>
+                                        <input v-model="noidung.models.ts.CBDHT12" title="DHT12" class="uk-input" id="form-stacked-text" type="number" min="0" max="50" placeholder="NHIỆT ĐỘ TRONG (0-50*C)">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="uk-margin">
+                            <div class="uk-form-controls">
+                                <div class="uk-child-width-1-1" uk-grid>
+                                    <div>
+                                        <label class="uk-form-label" for="form-stacked-text">ĐỘ ẨM (50-99%)</label>
+                                        <input v-model="noidung.models.ts.CBDS18B20" title="DS18B20" class="uk-input" id="form-stacked-text" type="number" min="50" max="99" placeholder="ĐỘ ẨM (50-99%)">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="uk-margin">
+                            <div class="uk-form-controls">
+                                <div class="uk-child-width-1-2" uk-grid>
+                                    <div>
+                                        <label class="uk-form-label" for="form-stacked-text">U THẤP (0-220V)</label>
+                                        <input v-model="noidung.models.ts.CBUthap" title="Uthap" class="uk-input" id="form-stacked-text" type="number" min="0" max="220" placeholder="U THẤP (0-220V)">
+                                    </div>
+                                    <div>
+                                        <label class="uk-form-label" for="form-stacked-text">U CAO (0-220V)</label>
+                                        <input v-model="noidung.models.ts.CBUcao" title="Ucao" class="uk-input" id="form-stacked-text" type="number" min="0" max="220" placeholder="U CAO (0-220V)">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="uk-margin">
+                            <div class="uk-form-controls">
+                                <div class="uk-child-width-1-2" uk-grid>
+                                    <div>
+                                        <label class="uk-form-label" for="form-stacked-text">I THẤP (0-10V)</label>
+                                        <input v-model="noidung.models.ts.CBIthap" title="Ithap" class="uk-input" id="form-stacked-text" type="number" min="0" max="10" placeholder="I THẤP (0-10A)">
+                                    </div>
+                                    <div>
+                                        <label class="uk-form-label" for="form-stacked-text">I CAO (0-10V)</label>
+                                        <input v-model="noidung.models.ts.CBIcao" title="Icao" class="uk-input" id="form-stacked-text" type="number" min="0" max="10" placeholder="I THẤP (0-10A)">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <button class="uk-button uk-button-primary" @click="caithongso">Cài đặt</button>
+                            <button class="uk-button uk-button-default uk-modal-close">Hủy</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <img src="/Page/home/tu.png" class="uk-position-absolute" style="top: 255px; left: 788px;" />
+
+        <div v-for="ts in noidung.thongsos">
+            <div>
+                <!--nhiệt độ DS18B20,DHT11,độ ẩm DHT11, điện áp U ,dòng điện  I , công suất P , hệ số công suất cospi ,trạng thái cảnh báo(0 hoặc 1 ) , trạng thái relay ( 0 hoặc 1)-->
+                <div class="uk-position-absolute uk-text-center" style="top: 257px; left: 799px; min-width: 300px; font-size: 32px;">
+                    <div>{{ts.Time | format_datetime}}</div>
+                </div>
+                <div class="uk-position-absolute uk-text-center" style="top: 310px; left: 954px; min-width: 166px; font-size: 27px;">
+                    <div>{{ts.DS18B20 || '---'}}*C</div>
+                </div>
+                <div class="uk-position-absolute uk-text-center" style="top: 350px; left: 954px; min-width: 166px; font-size: 27px;">
+                    <div>{{ts.DHT11 || '---'}}*C</div>
+                </div>
+                <div class="uk-position-absolute uk-text-center" style="top: 387px; left: 954px; min-width: 166px; font-size: 27px;">
+                    <div>{{ts.DHT12 || '---'}}%</div>
+                </div>
+                <div class="uk-position-absolute uk-text-center" style="top: 426px; left: 954px; min-width: 166px; font-size: 27px;">
+                    <div>{{ts.U || '---'}}V</div>
+                </div>
+                <div class="uk-position-absolute uk-text-center" style="top: 462px; left: 954px; min-width: 166px; font-size: 27px;">
+                    <div>{{ts.I || '---'}}A</div>
+                </div>
+                <div class="uk-position-absolute uk-text-center" style="top: 497px; left: 954px; min-width: 166px; font-size: 27px;">
+                    <div>{{ts.P || '---'}}W</div>
+                </div>
+                <div class="uk-position-absolute uk-text-center" style="top: 535px; left: 954px; min-width: 166px; font-size: 27px;">
+                    <div>{{ts.cospi || '---'}}</div>
+                </div>
+                <div class="uk-position-absolute uk-text-center" style="top: 568px; left: 954px; min-width: 166px; font-size: 27px;">
+                    <div>
+                        <img v-if="ts.canh_bao == '0'" src="/Page/home/circle_green_50.png" title="CẢNH BÁO" width="36" />
+                        ts
+                        <img v-else-if="ts.canh_bao == '1'" src="/Page/home/circle_red_50.png" title="BÌNH THƯỜNG" width="36" />
+                        <img v-else src="/Page/home/circle_gray50.png" title="KHÔNG TÍN HIỆU" width="36" />
+                    </div>
+                </div>
+                <div class="uk-position-absolute uk-text-center" style="top: 610px; left: 954px; min-width: 166px; font-size: 27px;">
+                    <div>{{ts.relay | on_off}}</div>
+                </div>
+                <div class="uk-position-absolute uk-text-center" style="top: 651px; left: 708px; min-width: 166px; font-size: 27px;">
+                    <div>
+                        <button class="uk-position-absolute" @click="getsetting()" style="width: 326px; height: 53px; padding: 5px; ">
+                            <img src="/Page/home/setting.png" style="width: 26px;" />
+                            Thiết lập
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="uk-position-bottom-left uk-text-left" style="text-align: center; width: 700px;color: red; height: 550px;overflow: auto;padding: 5px;background-color: rgba(209, 209, 209, 0.5);">
+            <div v-for="d in noidung.receverDatas">{{d}}</div>
+        </div>
+    </div>
+    <script src="/Page/moment/moment.min.js"></script>
+    <script src="/Page/uikit-3.2.3/js/uikit-icons.min.js"></script>
+    <script src="/Page/uikit-3.2.3/js/uikit.min.js"></script>
+    <script src="/Page/home/index.js"></script>
+</body>
+</html>
